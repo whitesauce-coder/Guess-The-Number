@@ -26,7 +26,6 @@ let popup = document.getElementById("popup");
 let closeBtn = document.getElementById("closeBtn");
 
 function showPopup() {
-    // li.innerText = "Your Number Was " + value + "\nNumber of Correct Position: " + correctPosition + "\nNumber Match: " + correctNumber + "\nNumber & Postion Both Match: " + correctNumberAndPosition
     popup.style.display = "flex";
 }
 
@@ -69,7 +68,7 @@ function buttonClick() {
     let splitRandom = randomNumber.toString().split("").map(Number);
     let splitValue = value.toString().split("").map(Number);
     let correctPosition = 0;
-    let correctNumber = (splitRandom.filter(num =>splitValue.includes(num)));
+    let correctNumber = (splitRandom.filter(num => splitValue.includes(num)));
     let correctNumberAndPosition = [];
     for (let i = 0; i < splitRandom.length; i++) {
         if (splitRandom[i] === splitValue[i]) {
@@ -109,6 +108,7 @@ function buttonClick() {
 
     attempsRemaining--;
     if (value === randomNumber) {
+        li.innerText = "Your Number Was " + value + "\nNumber of Correct Position: " + correctPosition + "\nNumber Match: " + correctNumber + "\nNumber & Postion Both Match: " + correctNumberAndPosition
         showPopup();
     }
     else if (value != randomNumber) {
