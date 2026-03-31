@@ -6,6 +6,7 @@ let historyUpdate = document.getElementById("historyUpdate")
 let empty = document.querySelector(".empty")
 let startAgainButton = document.getElementById("startAgainButton")
 let randomNumber = Math.floor(Math.random() * 9000) + 1000;
+console.log(randomNumber)
 let hasRun = false;
 checkButton.addEventListener('click', buttonClick)
 startAgainButton.addEventListener('click', reset);
@@ -25,6 +26,7 @@ let popup = document.getElementById("popup");
 let closeBtn = document.getElementById("closeBtn");
 
 function showPopup() {
+    // li.innerText = "Your Number Was " + value + "\nNumber of Correct Position: " + correctPosition + "\nNumber Match: " + correctNumber + "\nNumber & Postion Both Match: " + correctNumberAndPosition
     popup.style.display = "flex";
 }
 
