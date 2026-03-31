@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body">
+        <div class="heading">
+            <H2>Guess The Number</H2>
+            <p>Let's see,Are you Brain Dead or not.</p>
+        </div>
+
+        <div id="attemps">
+            <P>Attemps Remaining: 5</P>
+        </div>
+
+        <div id="random">
+            <p>Random number is ****.</p>
+            <p>Between 1000-9999.</p>
+        </div>
+
+        <div>
+            <input type="number" name="" class="input" placeholder="Gusse & type Number here">
+            <button id="checkButton">Check</button>
+
+            <div id="history">
+                <h4>History</h4>
+                <hr>
+                <p>
+                <ul id="historyUpdate">
+                    <li class="empty">Empty</li>
+
+                    <div id="popup" class="popup">
+                        <div class="popup-content">
+                            <h2>Success!</h2>
+                            <hr>
+                            <p>You guessed correctly!</p>
+                            <p>You’re Not Brain Dead.</p>
+                            <br>
+                            <hr>
+                            <div class="btnGroup">
+                                <button id="closeBtn" class="closeBtn">Start Again</button>
+                                <button id="close4" class="closeBtn">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="popup1" class="popup1">
+                        <div class="popup-content1">
+                            <h2>Invalid Input</h2>
+                            <br>
+                            <button id="close1">Try Again</button>
+                        </div>
+                    </div>
+
+                    <div id="popup2" class="popup2">
+                        <div class="popup-content2">
+                            <h2>Game Over</h2>
+                            <br>
+                            <hr>
+                            <p>You are Brain Dead.</p>
+                            <p>Loser!!!</p>
+                            <br>
+                            <hr>
+                            <div class="btnGroup1">
+                                <button id="close2" class="closeBtn2">Try Again</button>
+                                <button id="close3" class="closeBtn2">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                </p>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div>
+            <button id="startAgainButton">Start Again</button>
+        </div>
+
+
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
