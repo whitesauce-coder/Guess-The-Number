@@ -61,6 +61,8 @@ close3.addEventListener("click", () => {
     popup2.style.display = "none";
 });
 
+
+
 //Total run proccess
 function buttonClick() {
 
@@ -68,6 +70,11 @@ function buttonClick() {
     let splitRandom = randomNumber.toString().split("").map(Number);
     let splitValue = value.toString().split("").map(Number);
     let correctPosition = 0;
+    let valueCounter = 0;
+    splitValue.forEach((value) => {
+        valueCounter++;
+    });
+
 
     function shuffleArray(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
@@ -103,8 +110,9 @@ function buttonClick() {
         random.innerText = "Random number is " + randomNumber;
     }
 
-    if (value === "" || isNaN(value)) {
+    if (value === "" || isNaN(value) || valueCounter !== 4) {
         showPopup1();
+        "Please enter exactly 4 digits"
         return;
     }
 
