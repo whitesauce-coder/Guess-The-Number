@@ -105,38 +105,81 @@ body::before {
 /* HISTORY BOX */
 #history {
     margin-top: 15px;
-    padding: 10px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
 }
 
-/* HISTORY TITLE */
+/* TITLE */
 #history h4 {
     color: #ffcc70;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
 }
 
 /* LINE */
 #history hr {
     border: 0.5px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 /* LIST */
 #historyUpdate {
     list-style: none;
-    max-height: auto;
+    max-height: 220px;   /* 👈 important */
     overflow-y: auto;
+    padding-right: 5px;
 }
 
-/* LIST ITEMS */
+/* SCROLLBAR (modern look) */
+#historyUpdate::-webkit-scrollbar {
+    width: 5px;
+}
+#historyUpdate::-webkit-scrollbar-thumb {
+    background: #ffcc70;
+    border-radius: 10px;
+}
+
+/* LIST ITEM (CARD STYLE) */
 #historyUpdate li {
-    padding: 8px;
-    margin-bottom: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 3px solid #ffcc70;
-    border-radius: 5px;
-    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border-left: 4px solid #ffcc70;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    transition: 0.2s ease;
+}
+
+/* HOVER EFFECT */
+#historyUpdate li:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* LABELS */
+.label {
+    font-weight: bold;
+    color: #aaa;
+}
+
+/* VALUE COLORS */
+.correct-pos {
+    color: #4caf50; /* green */
+    font-weight: bold;
+}
+
+.number-match {
+    color: #ffcc70; /* yellow */
+    font-weight: bold;
+}
+
+.both-match {
+    color: #00d4ff; /* blue */
+    font-weight: bold;
 }
 
 /* EMPTY TEXT */

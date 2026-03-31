@@ -12,7 +12,7 @@ checkButton.addEventListener('click', buttonClick)
 startAgainButton.addEventListener('click', reset);
 
 let attempsCounter = 1;
-let attempsRemaining = 3;
+let attempsRemaining = 5;
 
 
 input.addEventListener("keydown", function (e) {
@@ -68,7 +68,18 @@ function buttonClick() {
     let splitRandom = randomNumber.toString().split("").map(Number);
     let splitValue = value.toString().split("").map(Number);
     let correctPosition = 0;
+
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
     let correctNumber = (splitRandom.filter(num => splitValue.includes(num)));
+    let shuffled = shuffleArray([...correctNumber]);
+
+
     let correctNumberAndPosition = [];
     for (let i = 0; i < splitRandom.length; i++) {
         if (splitRandom[i] === splitValue[i]) {
@@ -82,12 +93,12 @@ function buttonClick() {
         }
     });
 
-    if (3 === attempsCounter || value === randomNumber) {
+    if (5 === attempsCounter || value === randomNumber) {
         input.disabled = true;
         random.innerText = "Random number is " + randomNumber;
     }
 
-    if (3 === attempsCounter || value === randomNumber) {
+    if (5 === attempsCounter || value === randomNumber) {
         checkButton.disabled = true;
         random.innerText = "Random number is " + randomNumber;
     }
@@ -98,8 +109,8 @@ function buttonClick() {
     }
 
     let li = document.createElement("li")
+    historyUpdate.prepend(li);
 
-    historyUpdate.appendChild(li)
     if (!hasRun) {
         historyUpdate.removeChild(empty)
         hasRun = true;
@@ -108,15 +119,15 @@ function buttonClick() {
 
     attempsRemaining--;
     if (value === randomNumber) {
-        li.innerText = "Your Number Was " + value + "\nNumber of Correct Position: " + correctPosition + "\nNumber Match: " + correctNumber + "\nNumber & Postion Both Match: " + correctNumberAndPosition
+        li.innerText = "Your Number Was " + value + "\nNumber of Correct Position: " + correctPosition + "\nNumber Match: " + shuffled + "\nNumber & Postion Both Match: " + correctNumberAndPosition
         showPopup();
     }
     else if (value != randomNumber) {
-        if (attempsCounter === 3) {
+        if (attempsCounter === 5) {
             showPopup2();
         };
         li.style.color = "orange"
-        li.innerText = "Your Number Was " + value + "\nNumber of Correct Position: " + correctPosition + "\nNumber Match: " + correctNumber + "\nNumber & Postion Both Match: " + correctNumberAndPosition
+        li.innerText = "Your Number Was " + value + "\nNumber of Correct Position: " + correctPosition + "\nNumber Match: " + shuffled + "\nNumber & Postion Both Match: " + correctNumberAndPosition
     };
     attemps.innerText = "Attemps Remaining: " + attempsRemaining;
     attempsCounter++;
